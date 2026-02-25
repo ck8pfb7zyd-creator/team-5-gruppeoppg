@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <!--Lag et tekstfelt og et "tastatur" av forskjellige knapper du kan trykke på. 
+   Oppdater tekstfeltet til å vise frem hvilke knapper du har trykt på ved å bruke variabler, this og funksjon med parameter-->
+
+   
+    
+</body>
+<div id="app"></div>
+<br>
+<br>
+<a href ="/">Hjem</a>
+<script>
+
+     let tastetrykk = [];
+
+    updateView()
+     function updateView(){
+        document.getElementById("app").innerHTML = /*HTML*/ `
+        
+        <div id = "tekstfelt">${tastetrykk}</div> 
+        
+        <button onclick = "pressedButton(this.innerHTML)">q</button>
+        <button onclick = "pressedButton(this.innerHTML)">w</button>
+        <button onclick = "pressedButton(this.innerHTML)">e</button>
+        <button onclick = "pressedButton(this.innerHTML)">r</button>
+        <button onclick = "pressedButton(this.innerHTML)">t</button>
+        <button onclick = "pressedButton(this.innerHTML)">y</button>
+        <input onchange = "pressedButton(this.value)">     
+        `
+
+    }
+
+    function pressedButton(character){
+        tastetrykk.push(character);
+        updateView()
+    }
+</script>
+</html>

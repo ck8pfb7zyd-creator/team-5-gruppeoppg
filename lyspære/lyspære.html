@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+ <!--Lag et div-element som starter med bakgrunnsfargen grå.
+Når man trykker på lysbryteren så skrur lyspæren seg på (og fargen endrer seg til gul).
+Legg gjerne også ved en tekst som sier noe om lyspæren er på eller av.
+Oppgaven kan løses med onclick, variabler, if/else (ternary).-->
+<style>
+    .lyspære{
+        background-color: gray;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+</style>
+<div id="app"></div>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rIklz5_o3QQ?si=NfRpp2XDg3RHXWR5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br>
+<a href ="/">Hjem</a>
+<script>
+
+
+    updateView()
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/`
+    <div id="lys" class="lyspære"></div>
+    <button onclick="slåPåLyset()">LYSBRYTER</button>
+    `
+}
+
+function slåPåLyset() {
+    const lysElement = document.getElementById('lys'); 
+    const pærefarge = lysElement.style.backgroundColor;
+    
+    if (pærefarge === 'gray') {
+        lysElement.style.backgroundColor = 'yellow';
+        lysElement.innerHTML = 'På'  
+    } else {
+        lysElement.style.backgroundColor = 'gray';   
+        lysElement.innerHTML = 'Av' 
+    }
+}
+
+</script>
+
+</body>
+</html>

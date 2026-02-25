@@ -1,12 +1,28 @@
 
 
 function startTimer(){
-    timer = setInterval(countTime, 1000);
-
-    
-
+    klokkeur = setInterval(countTime, 1000);
     
  } 
+
+ function pauseTimer(){
+    clearInterval(klokkeur);   
+    rundeTid.push(minutt + ":" + sekund);
+    minutt = 0
+    sekund = 0
+    updateView()
+ }
+
+
+
+
+ function stopTimer(){ 
+    clearInterval(klokkeur);
+    minutt = 0
+    sekund = 0
+    rundeTid.length = 0
+    updateView()
+ }
 
 
  function countTime(){
