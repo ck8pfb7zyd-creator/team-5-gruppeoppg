@@ -27,7 +27,20 @@ Dersom det første tallet er større enn det andre, må man skrive inn ">" for �
 
 -->
 <div id="app"></div>
+
+<a href ="/">Hjem</a>
+<style>
+img{
+    height: 100px;
+    width: 100px;
+}
+
+
+
+</style>
+
 </body>
+
 
 <script>
 
@@ -36,15 +49,18 @@ Dersom det første tallet er større enn det andre, må man skrive inn ">" for �
     let y = 0
     let points = 0
     let input = '';
-
+    let gameText = '';
     //views
     updateView()
     function updateView(){
         document.getElementById('app').innerHTML = /*HTML*/`
+        <img src="https://cdn.pixabay.com/photo/2025/01/09/17/50/ai-generated-9322336_1280.png">
+        <br>
         ${x} <input onchange="storeInput(this.value)"> ${y}
         <button onclick="submitAnswer()">Submit</button>
         <button onclick="getRandomNumber()">Reset</button>
-        <div>Poeng: ${points}</div> 
+        <div>Poeng: ${points}</div>
+        <div>${gameText}</div>  
         `
 
     }
@@ -63,8 +79,25 @@ Dersom det første tallet er større enn det andre, må man skrive inn ">" for �
         updateView()
     }
     function submitAnswer(){
-        
-
+        //sjekk svaret
+        if ((input == '>') && (x > y)){
+            points += 1 
+            gameText = 'Helt riktig';
+        }
+        else if((input == '<') && (x < y) ){
+            points += 1
+            gameText = 'Helt riktig';
+       }
+       else if((input == '=') && (x = y) ){
+            points += 1
+            gameText = 'Helt riktig';
+       }
+       else{
+        points -= 1
+        gameText = 'Feil, prøv på nytt';
+       }
+       getRandomNumber()
+       updateView();
     }
 
 </script>
