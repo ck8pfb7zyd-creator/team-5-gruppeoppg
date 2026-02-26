@@ -1,0 +1,25 @@
+.infoBox{
+    background-color: yellow;
+    font-size: small;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+a {
+    font-size: large;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    text-align: center;
+    transition: 0.3s;   
+}
+
+.links a:hover{
+    text-shadow: 0 0 8px #0c89b3;
+}
