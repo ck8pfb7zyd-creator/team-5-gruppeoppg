@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trafikklys</title>
+    <link  rel="stylesheet" href="../style.css">
 </head>
 <body>
 
@@ -34,8 +35,15 @@ I denne oppgaven skal du lage et trafikklys som bytter fra rødt - til rødt og 
 <button onclick="lightAuto()">auto</button>
 <br>
 <br>
-<a href ="/">Hjem</a>
 
+
+<div class="infoBox">
+  Denne koden lager et trafikklys med tre sirkler (rød, gul og grønn) som endrer farge når du trykker på knappene.  
+  <code>changeLight(id, color)</code> slår av alle lys (setter dem til grå) og skrur på lyset du valgte ved å endre <code>backgroundColor</code> på riktig sirkel.  
+  <code>lightAuto()</code> får trafikklyset til å bytte farger automatisk ved hjelp av <code>setTimeout()</code> som kjører funksjonen på nytt hvert sekund.  
+  CSS-en former sirklene, gjør dem runde og legger dem i en svart boks som ser ut som et trafikklys.
+</div>
+<a href ="../index.html">Hjem</a>
 
 
 <style>

@@ -18,13 +18,22 @@ Husk at dette er en oppgave hvor du skal trene på å bruke variabler! -->
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
     <div id="stoppeklokke"></div> 
-    <br>
-    <a href ="/">Hjem</a>
+    <div class="infoBox">
+  Denne koden lager en enkel stoppeklokke som teller minutter og sekunder.  
+  <code>startTimer()</code> starter tellingen ved å bruke <code>setInterval()</code> hvert sekund.  
+  <code>pauseTimer()</code> stopper tiden, lagrer runden i en liste (<code>rundeTid</code>) og nullstiller klokkeslettet.  
+  <code>stopTimer()</code> stopper helt og tømmer alle rundetider.  
+  <code>countTime()</code> øker sekundene, og når det når 60, legges ett minutt til og sekundene settes til null.  
+  <code>updateView()</code> oppdaterer innholdet på nettsiden slik at tiden og rundene vises hele tiden.
+</div>
+    <a href ="../index.html">Hjem</a>
     
     
     <script src="models.js"></script>
