@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    
+  <!--Lag en liten historie med noen manglende ord. Lag en liste over ord som kan klikkes på - og la disse ordene fylle tomrommene i historien når de blir valgt. 
+Løs oppgaven ved å dele opp koden i MVC-->
+
+
+ <div id="app"></div>
+ <a href ="../index.html">Hjem</a>
+
+<script>
+    //M
+    let adj1 = "___";
+    let adj2 = "___"; 
+
+    //V
+    updateView(); 
+
+    function updateView(){
+        document.getElementById('app').innerHTML = /*HTML*/`
+        <div>Mergerethe var på det ${adj1} badet sitt og skulle bleke ${adj2} sine.</div>
+
+        <br>
+
+        <button onclick="leggTil1(this.innerHTML)">høye</button>
+        <button onclick="leggTil1(this.innerHTML)">lille</button>
+        <button onclick="leggTil1(this.innerHTML)">runde</button>
+
+        <br><br>
+
+        <button onclick="leggTil2(this.innerHTML)">klærne</button>
+        <button onclick="leggTil2(this.innerHTML)">tennene</button>
+        <button onclick="leggTil2(this.innerHTML)">kattene</button>
+
+        <button onclick="reset()">Reset</button>
+
+        `;   
+    }
+
+    //C
+
+    function leggTil1(adj){
+        adj1 = adj;
+        updateView();
+    }
+
+    function leggTil2(adj) {
+        adj2 = adj;
+        updateView();
+    }
+
+    function reset() {
+        adj1 = '___';
+        adj2 = '___'; 
+        updateView(); 
+    }
+
+    
+</script>
+
+
+
+</body>
+</html>

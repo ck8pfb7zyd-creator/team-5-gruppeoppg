@@ -63,3 +63,9 @@ a {
     0 0 10px #0c89b3,
     0 0 20px #0c89b3;
 }
+
+button{
+    background-color: #007bff;
+    border: 2px solid black;
+    border-radius: 20%;
+}
