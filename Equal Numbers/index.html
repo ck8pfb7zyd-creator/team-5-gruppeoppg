@@ -15,7 +15,7 @@ OBS: Nettleseren er ikke glad i å oppdatere view mens i en while-loop!-->
 <script>
 
 let num1 = 0;
-let num2 = 0;
+let num2 = 1;
 
 updateView()
 function updateView(){
@@ -27,15 +27,16 @@ function updateView(){
 function makeNumber(){
     let html = ''
     while (num1 != num2){
-        num1 = math.floor(math.random(1 * 10))
-
-        
-        num2 = math.floor(math.random(1 * 10))
-        html.append() = '${num1} + ${num2}'
-    };
-    if (num1 == num2) {
-        html = " disse tallene er like: ${num1} + ${num2}"
-    }
+        num1 = Math.floor(Math.random() * 10)
+        num2 = Math.floor(Math.random() * 10)
+        if (num1 == num2) {
+        html += `disse tallene er like: ${num1} + ${num2}`
+        }
+        else {
+            html  += `${num1} og ${num2} er ikke like <br>` }
+       }
+    
+    return html;
 }
 
 </script>

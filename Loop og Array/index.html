@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    Del 1:
+    Denne videoen viser hvordan man looper igjennom et array 
+    - og kan se ett og ett element i nettleserkonsollen. Bruk en for loop og eksperimenter videre for å få til å heller vise dette i viewet
+    Del 2:
+    Bruk det du har lært om å legge inn data i arrays og hvordan å hente data fra arrays og lag en handlevogn!
+Når du trykker på knappen "add to cart", tar du inn input fra brukeren og legger til og oppdaterer listen din i viewet.-->
+<div id="app"></div>
+
+<script>
+
+const handlevogn = ["Hatt","Dinosaur","Blyant","Mynter","Neglfil"]
+const app = document.getElementById('app');
+
+updateView()
+function updateView(){
+    app.innerHTML = /*HTML*/ `
+    <div>${loopArray()}</div>
+    <input onchange="addToCart(this.value)">
+
+    `  
+}
+
+function addToCart(item){
+    handlevogn.push(item)
+    updateView()
+}
+
+
+function loopArray(){
+    let html = ``
+    for (i = 0; i <= handlevogn.length -1; i++){
+        html += handlevogn[i] + ', '
+    }
+    
+    return html
+}
+
+
+</script>
+
+</body>
+</html>
