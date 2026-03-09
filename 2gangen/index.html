@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Bruk en for-løkke til å printe ut 2-gangen
+    resultatet bør da liste ut tallene:
+    2,4,6,8,10,12,14,16,18,20
+
+-->
+<div id="app"></div>
+<script>
+
+
+//M
+let tallet = 0;
+let display= '';
+
+//V
+updateView()
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/ `
+    
+    <button onclick="showToGangen(2)">Vis 2 gangen</button>
+    <button onclick="showToGangen(5)">Vis 5 gangen</button>
+    ${display}
+
+    `
+}
+
+//C
+
+function showToGangen(number){
+    display = toGange(number);
+    updateView();
+}
+
+function toGange(number){
+    let stop = 10;
+    let html = ''
+    for(let i = 0; i < stop; i++){
+
+        tallet += number;
+        html += `${tallet},`
+    }
+    
+    return html
+}
+
+</script>
+
+
+</body>
+</html>

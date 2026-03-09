@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--Lag en funksjon som teller opp antall vokaler i en string ved hjelp av en for-løkke
+Vokaler: a, e, i, o, u, y, æ, ø, å
+Bruk en variabel for hver av vokalene feks let aCounter  = 0 som plusses oppover dersom du finner bokstaven i tekststringen-->
+
+<div id="app"></div>
+<script>
+//M
+let aCounter = 0
+let eCounter = 0
+let iCounter = 0
+let oCounter = 0
+let uCounter = 0
+let yCounter = 0
+let æCounter = 0
+let øCounter = 0
+let åCounter = 0
+let text = ''
+
+
+//V
+updateView()
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/`
+    <button onclick="getText('Vi er team 5!')">Text</button>
+    <input onchange="getText(this.value)">
+    ${printVars()}
+    `
+}
+
+
+//C
+function getText(inputString){
+text = inputString;
+for(let i = 0; i<inputString.length; i++){
+    if (inputString[i].toLowerCase() == 'a'){
+        aCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'e'){
+        eCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'i'){
+        iCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'o'){
+        oCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'u'){
+        uCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'y'){
+        yCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'æ'){
+        æCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'ø'){
+        øCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+    else if (inputString[i].toLowerCase() == 'å'){
+        åCounter++;
+        //text = text + inputString.charAt(i) + '';
+    }
+}
+updateView()
+}
+
+function printVars(){
+    let html = '';
+    if(text != ''){
+        html = /*HTML*/`
+        <h2>${text}</h2>
+        <ul>
+            <li>A = ${aCounter}</li>
+            <li>E = ${eCounter}</li>
+            <li>I = ${iCounter}</li>
+            <li>O = ${oCounter}</li>
+            <li>U = ${uCounter}</li>
+            <li>Y = ${yCounter}</li>
+            <li>Æ = ${æCounter}</li>
+            <li>Ø = ${øCounter}</li>
+            <li>Å = ${åCounter}</li>
+        </ul>
+        `;
+    }
+    return html;
+}
+
+</script>
+
+
+</body>
+</html>
