@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Lag din egen Magic 8 Ball der man får et tilfeldig råd av den magiske, overdimensjonerte åtteballen.
+
+Ekstra: Gjør det slik at man aldri kan få det samme rådet etter hverandre.
+Bruk MVC, variabler, arrays og random for å løse oppgaven.-->
+
+<div id ="app"></div>
+
+<script>
+
+//M
+const svar = [    "It is certain","It is decidedly so", "Without a doubt", "Yes definitely"
+    ,"You may rely on it"
+    ,"As I see it, yes"
+   ," Most likely"
+    ,"Outlook good"
+   ," Yes"
+    ,"Signs point to yes"
+
+	
+
+    ,"Reply hazy, try again"
+    ,"Ask again later"
+    ,"Better not tell you now"
+    ,"Cannot predict now"
+    ,"Concentrate and ask again"
+
+    ,"Don't count on it"
+    ,"My reply is no"
+    ,"My sources say no"
+    ,"Outlook not so good"
+    ,"Very doubtful"]
+
+let info = ""
+
+    //V
+updateView();
+function updateView(){
+    document.getElementById('app').innerHTML = /*HTML*/`
+    <h3>Magic eight ball</h3>
+    <p>spør den ett ja nei spørsmål</p>
+    <input>
+    <button onclick ="getAnswer()">Shake it!</button>
+    <div> svaret er: ${info}</div>
+    `
+}
+
+//Lærte at man ikke kan returnere en funksjon og calle den på onclick samtidig.
+
+//C
+
+
+function getAnswer(){
+
+    let i = Math.floor(Math.random() * 20)
+    info = svar[i]
+    updateView()
+
+}
+
+
+</script>
+
+
+
+</body>
+</html>

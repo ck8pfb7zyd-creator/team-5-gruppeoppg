@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .lamp{
+            height: 50px;
+            width: 50px;
+            border: solid black;
+            border-radius: 50%;
+            background-color: grey;
+            
+        }
+        .lightOn{
+            background-color: yellow;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: center;
+            flex-wrap: wrap;
+            height: 300px;
+
+        }
+
+    </style>
+    
+<!--
+x 1. Lag en updateView()-funksjon som lager 25 sirkler ved hjelp av 25 DIV-er med en bakrunnsfarge du velger selv, og en sirkulær ramme (border-radius: 50%). 
+Sett bredde og høyde til noe passende. Vis dem i 5 rader a 5 sirkler. Lag en egen css class for dette, kall den for eksempel "lamp". 
+
+2. Lag en css class "lightOn" med gul farge. Lag en kontroller-funksjon som endrer en variabel selectedLampIndex i modellen til et tilfeldig tall under 25 
+og så kaller updateView(). Endre den slik at riktig lampe lyser opp. Sørg for å kalle kontroller-funksjonen når siden laster. 
+
+3. Legg til en onclick kun på den knappen som lyser - og koble den til en kontroller-funksjonen du lagde i forrige punkt. 
+
+4. Forsøk å måle og vise tiden det tok fra en lampe lyste opp til brukeren trykket på den. Her er noen hint, men finn ut selv hvor i koden du legger dette:
+var startTime = new Date().getTime();
+var finishTime = new Date().getTime();
+var spentMilliseconds = Math.floor(finishTime - startTime);
+var spentSeconds = spentMilliseconds / 1000;-->
+
+<div id="app"></div>
+<div id="result"></div>
+<div id="timer"></div>
+
+<script>
+//hvilken lampe som lyser 
+let selectedLampIndex = 0
+
+//tidspunkt når lampen begynte å lyse 
+ 
+let klokkeur;
+let time = 0 
+
+var startTime;
+var finishTime;
+var spentMilliseconds = ""
+var spentSeconds = ""
+
+
+
+
+updateView()
+    function updateView(){
+        document.getElementById('app').innerHTML = /*HTML*/`
+       <div class="container">${Light()}</div>
+
+       <div>${spentMilliseconds}</div>
+       
+       ${spentSeconds}
+        `
+    }
+    
+function startTimer(){
+ klokkeur = setInterval(countTime, 10000)
+ startTime = new Date().getTime();
+}
+
+function countTime(){
+    //øker tiden med 1 sekund
+    time++
+    time = startTime
+    //viser tiden på siden
+    document.getElementById("timer").innerHTML =
+    "Tid:" + time + "sek"
+}
+
+    function Light(){
+        
+        let html = "" // her lagrer/legger til det vi vil vise 
+        selectedLampIndex = Math.floor(Math.random()* 25)
+        
+
+
+
+
+        for(i = 0; i < 25; i++){
+        //hvis dette er lampen som skal lyse 
+            if(i == selectedLampIndex){
+               html += /*HTML*/`
+            <div id="knappen" class="lamp lightOn" onclick="turnOff()"></div>
+            `} // lager en unik lampe 
+
+            else {html += /*HTML*/`
+            <div class="lamp"></div>
+            ` }
+            
+            } 
+
+
+            
+           
+          
+       
+        return html // returnerer html
+    }
+
+    function turnOff(){
+
+        //stopper timeren 
+        clearInterval(klokkeur)
+
+        //nullstiller tiden 
+        finishTime = new Date().getTime();
+        time = 0
+
+        spentMilliseconds = Math.floor(finishTime - startTime);
+        spentSeconds = spentMilliseconds / 1000;
+        Light();
+        updateView();
+        startTimer(); 
+    }
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

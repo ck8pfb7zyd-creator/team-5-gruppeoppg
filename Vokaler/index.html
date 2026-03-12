@@ -30,9 +30,9 @@ updateView()
 function updateView(){
     document.getElementById('app').innerHTML = /*HTML*/`
     <button onclick="getText('Vi er team 5!')">Text</button>
+    
     <input onchange="getText(this.value)">
-    ${printVars()}
-    `
+    ${printVars()}`
 }
 
 

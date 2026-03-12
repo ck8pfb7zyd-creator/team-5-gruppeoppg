@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <!--  Oppgave: Gjenkjenn epostadresse
+
+Du skal lage en enkel funksjon som tar en tekst som parameter og returnerer true eller false ut fra om teksten er en epostadresse eller ikke
+
+Oppgave
+
+    I første omgang skal funksjonen si at det er en epostadresse kun hvis teksten inneholder @.
+    I tillegg: teksten skal ikke inneholde mellomrom.
+    I tillegg: teksten skal ha et punktum et sted etter @. -->
+
+
+
+  <div id="app"></div>
+
+
+
+
+    <script>
+
+      const app = document.getElementById('app')
+      let harAt = false
+      let harPunktum = false
+      let isEpost  = false
+      let harMellomrom = false
+
+      updateView()
+      function updateView(){
+      app.innerHTML = /*HTML*/ `
+      <input onchange="epostSjekk(this.value)">
+      ${isEpost}
+      
+      `
+
+    };
+
+
+  
+  
+
+    function epostSjekk(input){
+    
+     harAt = false
+     harPunktum = false
+     isEpost  = false
+     harMellomrom = false
+        
+        for(i = 0; i < input.length; i++){
+            let tegn = input[i];
+            if (tegn == "@" ){
+                harAt = true
+                
+
+                
+            }
+            if (harAt){
+              if(tegn == "." ){
+                harPunktum = true
+              }
+
+            }
+           
+          if (tegn == " "){
+            harMellomrom = true
+            consol.log(tegn)
+          }
+            }
+
+         if(harAt && harPunktum && !harMellomrom){
+              isEpost = true
+            }
+        updateView()
+        
+    }
+
+
+
+
+    
+
+    </script>
+
+    
+</body>
+</html>
